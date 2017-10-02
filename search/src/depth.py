@@ -2,16 +2,25 @@
 # -*- coding: utf-8 -*-
 
 import os
+import argparse
 
 
 import data
 
-data_path = os.path.join('C:\\', 'WORK', 'search', 'data')
-Graph, Names = data.read_all(data_path)
+AP = argparse.ArgumentParser(description='Search path in graph')
+AP.add_argument('first', type=str, help='First vertex in path')
+AP.add_argument('last', type=str, help='Last vertex in path')
+AP.add_argument('--data-path', '-d', dest='path', action='store', type=str, default='.', help='Path to directory where data files are located')
+AP.add_argument('--nodes', '-n', dest='nodes', action='store', type=str, default='nodes.csv', help='Name of nodes file')
+AP.add_argument('--links', '-l', dest='links', action='store', type=str, default='links.csv', help='Name of links file')
 
-# TODO Это временно, на самом деле так не спрашивают!!!!
-First = Names[input('First: ')]['number']
-Last = Names[input('Last: ')]['number']
+ARGS = AP.parse_args()
+
+data_path = os.path.abspath(ARGS.path)
+Graph, Names = data.read_all(data_path, ARGS.nodes, ARGS.links)
+
+First = Names[ARGS.first]['number']
+Last = Names[ARGS.last]['number']
 
 for path in data.in_depth(Graph, First, Last):
     print(path)
