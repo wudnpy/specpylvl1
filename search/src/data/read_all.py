@@ -5,6 +5,8 @@ import os
 import weakref
 from collections import UserDict
 
+from profiling import timing
+
 from .read_nodes import read_nodes
 from .read_links import read_links
 
@@ -12,6 +14,8 @@ __all__ = ('read_all', )
 
 class CorruptedData(Exception): pass
 
+
+@timing
 def read_all(path, nodes='nodes.csv', links='links.csv'):
 
     nodes_path = os.path.join(path, nodes)
