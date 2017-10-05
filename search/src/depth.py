@@ -37,6 +37,8 @@ logging.basicConfig(
 
 data_path = os.path.abspath(ARGS.path)# преобразование в абсолютный путь # os.path.join() - нужно использовать при назначении относительного пути.
 
+print('DATA PATH: '+str(data_path))
+
 logging.debug('First: {0.first} Last: {0.last}'.format(ARGS))# дополнительные возможности форматирования строки.
 logging.debug('Data path: {0.path} ({1})'.format(ARGS, data_path))
 logging.debug('Nodes: {0.nodes} Links: {0.links}'.format(ARGS))

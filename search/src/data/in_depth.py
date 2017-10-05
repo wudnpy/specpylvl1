@@ -4,7 +4,7 @@
 __all__ = ('in_depth', )
 
 def in_depth(graph, first, last):
-
+	
     Path = [first]
 
     while Path:

@@ -9,4 +9,4 @@ def read_links(filepath, encoding='utf-8'):
     with open(filepath, 'rt', encoding=encoding) as src:
         rdr = csv.reader(src)
         for n1, n2, penalty in rdr:
-            yield int(n1), int(n2), float(penalty) #yield - выдает элемент последовательности который нам нужен.
+            yield int(n1), int(n2), float(penalty) #yield - возвращает элемент последовательности в виде кортежа.

@@ -9,5 +9,5 @@ def read_nodes(filepath, encoding='utf-8'):
     with open(filepath, 'rt', encoding=encoding) as src:
         rdr = csv.reader(src)
         for number, name in rdr:
-            yield int(number), name #yield - выдает элемент последовательности который нам нужен.
+            yield int(number), name #yield - возвращает элемент последовательности в виде кортежа.
 

@@ -6,3 +6,4 @@ from .read_nodes import *
 from .read_links import *
 from .read_all import *
 from .in_depth import *
+from .in_width import *
